@@ -1,5 +1,5 @@
 {
-  "dockerFile": "docker.pkg.github.com/bvanrijn/devcontainer-jekyll-base-image/base:latest",
+  "image": "docker.pkg.github.com/bvanrijn/devcontainer-jekyll-base-image/base:latest",
   "forwardPorts": [4000],
   "settings": {
     "terminal.integrated.shell.linux": "/usr/bin/zsh"

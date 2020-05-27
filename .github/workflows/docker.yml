@@ -1,0 +1,16 @@
+on:
+  push:
+    branches:
+      - master
+name: Push Docker image
+jobs:
+  build:
+    name: Push Docker image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - run: echo $PASSWORD | docker login docker.pkg.github.com --username bvanrijn --password-stdin
+        env:
+          PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+      - run: docker build -t docker.pkg.github.com/bvanrijn/devcontainer-jekyll-base-image:latest -f Dockerfile .
+      - run: docker push docker.pkg.github.com/bvanrijn/devcontainer-jekyll-base-image:latest

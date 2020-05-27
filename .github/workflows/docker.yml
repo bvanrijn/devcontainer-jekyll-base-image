@@ -12,5 +12,5 @@ jobs:
       - run: echo $PASSWORD | docker login docker.pkg.github.com --username bvanrijn --password-stdin
         env:
           PASSWORD: ${{ secrets.GITHUB_TOKEN }}
-      - run: docker build -t docker.pkg.github.com/bvanrijn/devcontainer-jekyll-base-image:latest -f Dockerfile .
-      - run: docker push docker.pkg.github.com/bvanrijn/devcontainer-jekyll-base-image:latest
+      - run: docker build -t docker.pkg.github.com/bvanrijn/devcontainer-jekyll-base-image/base:latest -f Dockerfile .
+      - run: docker push docker.pkg.github.com/bvanrijn/devcontainer-jekyll-base-image/base:latest
